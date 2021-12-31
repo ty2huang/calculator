@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <main class="main">
+        <div id="calculator">
+            <div id="display">
+                <div id="prior-operation"></div>
+                <div id="current-entry">0</div>
+            </div>
+            <div id="buttons">
+                <button id="back-btn" class="btn large-text lightsalmon" value="back">←</button>
+                <button id="clear-entry-btn" class="btn small-text lightsalmon" value="CE">Clear<br>Entry</button>
+                <button id="clear-all-btn" class="btn small-text lightsalmon" value="AC">Clear<br>All</button>
+                <button id="modulus-btn" class="btn small-text bi-op" value="mod">mod</button>
+                <button id="root-btn" class="btn uni-op large-text" value="sqrt">√</button>
+                <button id="seven-btn" class="btn number-btn beige" value="7">7</button>
+                <button id="eight-btn" class="btn number-btn beige" value="8">8</button>
+                <button id="nine-btn" class="btn number-btn beige" value="9">9</button>
+                <button id="divide-btn" class="btn bi-op" value="÷">÷</button>
+                <button id="square-btn" class="btn uni-op" value="square">x²</button>
+                <button id="four-btn" class="btn number-btn beige" value="4">4</button>
+                <button id="five-btn" class="btn number-btn beige" value="5">5</button>
+                <button id="six-btn" class="btn number-btn beige" value="6">6</button>
+                <button id="multiply-btn" class="btn bi-op" value="×">×</button>
+                <button id="square-btn" class="btn uni-op" value="1/">1/x</button>
+                <button id="one-btn" class="btn number-btn beige" value="1">1</button>
+                <button id="two-btn" class="btn number-btn beige" value="2">2</button>
+                <button id="three-btn" class="btn number-btn beige" value="3">3</button>
+                <button id="minus-btn" class="btn bi-op" value="-">-</button>
+                <button id="equals-btn" class="btn double-height" value="=">=</button>
+                <button id="negate-btn" class="btn uni-op beige" value="neg">±</button>
+                <button id="zero-btn" class="btn number-btn beige" value="0">0</button>
+                <button id="dot-btn" class="btn number-btn beige" value=".">.</button>
+                <button id="plus-btn" class="btn bi-op" value="+">+</button>
+            </div>
+        </div>
+        <div class="note">Note: This calculator only evaluates a single pair of numbers at a time.</div>
+    </main>
+    <footer class="footer">Copyright © 2021 ty2huang 
+        <a href="https://github.com/ty2huang" target="_blank">
+            <i class="fa fa-github"></i>
+        </a>
+    </footer>
+</body>
+</html>

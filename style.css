@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: gainsboro;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: lavender;
+    font-size: 24px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: aliceblue;
+}
+
+.btn:active {
+    background-color: azure;
+}
+
+
+/* MAIN */
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#calculator {
+    background-color: darkgray;
+    padding: 20px;
+    margin: 32px;
+    border: 3px solid black;
+    border-radius: 10px;
+    max-width: 450px;
+    max-height: 600px;
+    width: 75vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px;
+}
+
+#display {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: right;
+    padding: 8px 16px;
+}
+
+#prior-operation {
+    flex: 1;
+    font-size: 25px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+}
+
+#current-entry {
+    flex: 2;
+    font-size: 50px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+}
+
+#buttons {
+    flex: 4;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+}
+
+.small-text {
+    font-size: 20px;
+}
+
+.large-text {
+    font-size: 36px;
+}
+
+.double-height {
+    grid-row: span 2;
+}
+
+.lightsalmon {
+    background-color: rgb(250, 150, 140);
+}
+
+.lightsalmon:hover {
+    background-color: darksalmon;
+}
+
+.lightsalmon:active {
+    background-color: lightsalmon;
+}
+
+.beige {
+    background-color: beige;
+}
+
+.note {
+    margin-bottom: 32px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    padding: 10px;
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+}
