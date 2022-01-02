@@ -12,6 +12,7 @@ const negateBtn = document.querySelector('#negate-btn');
 const equalsBtn = document.querySelector('#equals-btn');
 
 const allBtns = document.querySelectorAll('.btn');
+const shortcutsLink = document.querySelector('#shortcuts-link');
 
 const entryLimit = 8;
 
@@ -101,7 +102,7 @@ function isDisplayingZero() {
     return digitsStack.length === 1 && digitsStack[0] === '0';
 }
 
-function updateNumberEntry(event) {
+function updateNumberEntry(val) {
     switch (state) {
         case BINARY_OP_STATE:
         case UNARY_OP_STATE:
@@ -111,7 +112,6 @@ function updateNumberEntry(event) {
             clearAll();
             break;
     }
-    const val = event.target.value;
     if (digitsStack.length - numDecimalPoints === entryLimit) return;
     if (val === '0' && isDisplayingZero()) return;
 
@@ -156,11 +156,19 @@ function clearEntryBtnBehaviour() {
     else clearEntry();
 }
 
+function convertOpToDisplayChar(op) {
+    if (op === '%') return 'mod';
+    else if (op === '/') return '÷';
+    else if (op === '*') return '×';
+    else return op;
+}
+
 function displayQuery() {
     let part1 = '';
     if (priorOp !== '') {
         const priorNumberRounded = roundNumber(priorNumber);
-        part1 = `${priorNumberRounded} ${priorOp} `
+        const opToShow = convertOpToDisplayChar(priorOp);
+        part1 = `${priorNumberRounded} ${opToShow} `
     }
     let part2 = '';
     if (state === FINAL_RESULT_STATE) {
@@ -183,21 +191,21 @@ function evaluate() {
         case '':
             result = num;
             break;
-        case 'mod':
+        case '%':
             if (num === 0) {
                 alert("Cannot mod by 0");
                 return undefined;
             }
             result = properMod(priorNumber, num);
             break;
-        case '÷':
+        case '/':
             if (num === 0) {
                 alert("Cannot divide by 0");
                 return undefined;
             }
             result = priorNumber / num;
             break;
-        case '×':
+        case '*':
             result = priorNumber * num;
             break;
         case '-':
@@ -211,7 +219,7 @@ function evaluate() {
     return result;
 }
 
-function addOperation(event) {
+function addOperation(op) {
     switch (state) {
         case NUMBER_ENTRY_STATE:
         case UNARY_OP_STATE:
@@ -223,11 +231,11 @@ function addOperation(event) {
             priorNumber = evaluation;
             break;
     }
-    priorOp = event.target.value;
+    priorOp = op;
     state = BINARY_OP_STATE;
 }
 
-function showEquation() {
+function setToEquation() {
     if (state === BINARY_OP_STATE) {
         isNegative = false;
         digitsStack = [valueOnDisplay];
@@ -238,8 +246,7 @@ function showEquation() {
     state = FINAL_RESULT_STATE;
 }
 
-function applyUnaryOp(event) {
-    let op = event.target.value;
+function applyUnaryOp(op) {
     if (op === 'sqrt' && valueOnDisplay < 0) {
         alert('Cannot square root a negative number');
         return;
@@ -263,17 +270,47 @@ function applyUnaryOp(event) {
     unaryOpStack.push(op);
 }
 
-numberBtns.forEach(btn => btn.addEventListener('click', updateNumberEntry));
+function showShortcuts() {
+    window.open('shortcuts/index.html', '_blank', 'height=700,width=700').focus();
+}
+
+function handleKeyPress(event) {
+    const key = event.key;
+    if (key >= 0 && key <= 9 || key === '.') updateNumberEntry(key);
+    else if (key === 'n') {
+        negate();
+        applyUnaryOp('neg');
+    }
+    else if (key === 'Backspace') removeEntry();
+    else if (key === 'Delete') clearEntryBtnBehaviour();
+    else if (key === 'Escape') clearAll();
+    else if (key === '%' || key === '/' || key === '*' || key === '-' || key === '+') addOperation(key);
+    else if (key === '=' || key === 'Enter') setToEquation();
+    else if (key === 'r') applyUnaryOp('1/');
+    else if (key === 'q') applyUnaryOp('square');
+    else if (key === 'w') applyUnaryOp('sqrt');
+    else {
+        if (key === 'h') showShortcuts();
+        return;
+    }
+    displayQuery();
+    displayDigits();
+}
+
+numberBtns.forEach(btn => btn.addEventListener('click', () => updateNumberEntry(btn.value)));
 backBtn.addEventListener('click', removeEntry);
 negateBtn.addEventListener('click', negate);
 
 clearEntryBtn.addEventListener('click', clearEntryBtnBehaviour);
 clearAllBtn.addEventListener('click', clearAll);
 
-binaryOpBtns.forEach(btn => btn.addEventListener('click', addOperation));
-equalsBtn.addEventListener('click', showEquation);
+binaryOpBtns.forEach(btn => btn.addEventListener('click', () => addOperation(btn.value)));
+equalsBtn.addEventListener('click', setToEquation);
 
-unaryOpBtns.forEach(btn => btn.addEventListener('click', applyUnaryOp));
+unaryOpBtns.forEach(btn => btn.addEventListener('click', () => applyUnaryOp(btn.value)));
 
-allBtns.forEach(btn => btn.addEventListener('click', displayDigits));
 allBtns.forEach(btn => btn.addEventListener('click', displayQuery));
+allBtns.forEach(btn => btn.addEventListener('click', displayDigits));
+
+shortcutsLink.addEventListener('click', showShortcuts);
+window.addEventListener('keydown', handleKeyPress);

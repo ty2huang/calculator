@@ -8,6 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="icon.png">
     <title>Calculator</title>
 </head>
 <body>
@@ -17,21 +18,21 @@
                 <div id="prior-operation"></div>
                 <div id="current-entry">0</div>
             </div>
-            <div id="buttons">
-                <button id="back-btn" class="btn large-text lightsalmon" value="back">←</button>
-                <button id="clear-entry-btn" class="btn small-text lightsalmon" value="CE">Clear<br>Entry</button>
-                <button id="clear-all-btn" class="btn small-text lightsalmon" value="AC">Clear<br>All</button>
-                <button id="modulus-btn" class="btn small-text bi-op" value="mod">mod</button>
+            <div id="calc-buttons">
+                <button id="back-btn" class="btn large-text salmon" value="back">←</button>
+                <button id="clear-entry-btn" class="btn small-text salmon" value="CE">Clear<br>Entry</button>
+                <button id="clear-all-btn" class="btn small-text salmon" value="AC">Clear<br>All</button>
+                <button id="modulus-btn" class="btn small-text bi-op" value="%">mod</button>
                 <button id="root-btn" class="btn uni-op large-text" value="sqrt">√</button>
                 <button id="seven-btn" class="btn number-btn beige" value="7">7</button>
                 <button id="eight-btn" class="btn number-btn beige" value="8">8</button>
                 <button id="nine-btn" class="btn number-btn beige" value="9">9</button>
-                <button id="divide-btn" class="btn bi-op" value="÷">÷</button>
+                <button id="divide-btn" class="btn bi-op" value="/">÷</button>
                 <button id="square-btn" class="btn uni-op" value="square">x²</button>
                 <button id="four-btn" class="btn number-btn beige" value="4">4</button>
                 <button id="five-btn" class="btn number-btn beige" value="5">5</button>
                 <button id="six-btn" class="btn number-btn beige" value="6">6</button>
-                <button id="multiply-btn" class="btn bi-op" value="×">×</button>
+                <button id="multiply-btn" class="btn bi-op" value="*">×</button>
                 <button id="square-btn" class="btn uni-op" value="1/">1/x</button>
                 <button id="one-btn" class="btn number-btn beige" value="1">1</button>
                 <button id="two-btn" class="btn number-btn beige" value="2">2</button>
@@ -44,7 +45,10 @@
                 <button id="plus-btn" class="btn bi-op" value="+">+</button>
             </div>
         </div>
-        <div class="note">Note: This calculator only evaluates a single pair of numbers at a time.</div>
+        <div class="note">
+            Note: This calculator only evaluates a single pair of numbers at a time.<br>
+            For keyboard shortcuts, click <a href="" id="shortcuts-link">here</a> or press "h".
+        </div>
     </main>
     <footer class="footer">Copyright © 2021 ty2huang 
         <a href="https://github.com/ty2huang" target="_blank">
