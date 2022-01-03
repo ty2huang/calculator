@@ -272,7 +272,7 @@ function applyUnaryOp(op) {
 }
 
 function showShortcuts() {
-    window.open('shortcuts/index.html', '_blank', 'height=700,width=700').focus();
+    window.open('shortcuts/index.html', '_blank', 'height=800,width=700').focus();
 }
 
 function handleKeyPress(event) {
