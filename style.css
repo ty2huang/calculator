@@ -33,6 +33,30 @@ body {
     box-shadow: 0px 0px;
 }
 
+.small-text {
+    font-size: 16px;
+}
+
+.large-text {
+    font-size: 36px;
+}
+
+.salmon {
+    background-color: rgb(250, 150, 140);
+}
+
+.salmon:hover {
+    background-color: lightsalmon;
+}
+
+.salmon:active {
+    background-color: darksalmon;
+}
+
+.beige {
+    background-color: beige;
+}
+
 
 /* MAIN */
 
@@ -53,8 +77,10 @@ body {
     border-radius: 10px;
     max-width: 450px;
     max-height: 600px;
-    width: 60vmin;
-    height: 80vmin;
+    min-width: 225px;
+    min-height: 300px;
+    width: 66vw;
+    height: 88vw;
     display: flex;
     flex-direction: column;
     box-shadow: 5px 10px 10px;
@@ -74,7 +100,7 @@ body {
 
 #prior-operation {
     flex: 1;
-    font-size: 25px;
+    font-size: 24px;
     display: flex;
     align-items:center;
     justify-content: flex-end;
@@ -82,7 +108,7 @@ body {
 
 #current-entry {
     flex: 2;
-    font-size: 50px;
+    font-size: 48px;
     display: flex;
     align-items:center;
     justify-content: flex-end;
@@ -97,37 +123,68 @@ body {
     row-gap: 12px;
 }
 
-.small-text {
-    font-size: 20px;
-}
-
-.large-text {
-    font-size: 36px;
-}
-
 .double-height {
     grid-row: span 2;
-}
-
-.salmon {
-    background-color: rgb(250, 150, 140);
-}
-
-.salmon:hover {
-    background-color: lightsalmon;
-}
-
-.salmon:active {
-    background-color: darksalmon;
-}
-
-.beige {
-    background-color: beige;
 }
 
 .note {
     margin-bottom: 32px;
     width: 75vmin;
+}
+
+@media (max-width: 500px) {
+    .btn {
+        font-size: 16px;
+    }
+
+    .small-text {
+        font-size: 12px;
+    }
+    
+    .large-text {
+        font-size: 18px;
+    }
+
+    #calculator {
+        font-size: 16px;
+    }
+
+    #prior-operation {
+        font-size: 12px;
+    }
+    
+    #current-entry {
+        font-size: 24px;
+    }
+}
+
+@media (max-height: 750px) {
+    #calculator {
+        max-width: 60vh;
+        max-height: 80vh;
+    }
+}
+
+@media (max-height: 550px) {
+    .btn {
+        font-size: 16px;
+    }
+
+    .small-text {
+        font-size: 12px;
+    }
+    
+    .large-text {
+        font-size: 18px;
+    }
+
+    #prior-operation {
+        font-size: 12px;
+    }
+    
+    #current-entry {
+        font-size: 24px;
+    }
 }
 
 /* Keyboard Shortcuts Table */

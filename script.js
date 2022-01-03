@@ -178,7 +178,8 @@ function displayQuery() {
     if (state === UNARY_OP_STATE) {
         part2 = unaryOpStackToStr();
     }
-    priorOperationDiv.textContent = part1 + part2;
+    const queryText = part1 + part2;
+    priorOperationDiv.innerHTML = (queryText === '' ? '<br>' : queryText);
 }
 
 function evaluate() {
